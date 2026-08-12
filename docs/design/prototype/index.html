@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora óptica paramétrica — Prototipo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <p class="eyebrow">Fase 3 · Prototipo navegable</p>
+      <h1>Calculadora óptica paramétrica</h1>
+    </div>
+    <div class="lang-toggle">
+      <button class="active">ES</button>
+      <button>EN</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- PANEL DE CONTROL -->
+    <div>
+      <div class="panel">
+        <h2>Parámetros</h2>
+
+        <div class="iris-wrap">
+          <svg id="iris" width="140" height="140" viewBox="0 0 140 140"></svg>
+          <div class="iris-caption">Diámetro del orificio<br><b id="diamLabel" style="color:var(--ink); font-family:'JetBrains Mono',monospace;">0.235 mm</b></div>
+        </div>
+
+        <div class="field">
+          <label>Diámetro del orificio <b id="diamVal">0.235 mm</b></label>
+          <input type="range" id="diam" min="5" max="200" value="100">
+        </div>
+
+        <div class="field">
+          <label>Distancia focal <b id="focalVal">50 mm</b></label>
+          <input type="range" id="focal" min="20" max="150" value="50">
+        </div>
+
+        <div class="field">
+          <label style="margin-bottom:8px;">Longitud de onda de referencia</label>
+          <select>
+            <option>550 nm (luz visible media)</option>
+            <option>450 nm (azul)</option>
+            <option>650 nm (rojo)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL DE RESULTADO -->
+    <div>
+      <div class="panel">
+        <h2>Resultado</h2>
+        <div class="output-row">
+          <div class="stat">
+            <div class="k">Diámetro óptimo (Rayleigh)</div>
+            <div class="v" id="optimoVal">0.235 mm</div>
+          </div>
+          <div class="stat">
+            <div class="k">Clasificación</div>
+            <div id="badge" class="badge optimo"><span class="dot"></span>Óptimo</div>
+          </div>
+        </div>
+
+        <div class="preview">
+          <canvas id="canvas" width="400" height="400"></canvas>
+          <div class="preview-note">Simulación visual — aproximación educativa</div>
+        </div>
+
+        <p class="disclaimer">
+          Esta vista es una aproximación visual del efecto de difracción/desenfoque, calibrada a partir de un
+          spike técnico (ver <code>docs/spikes/001-simulacion-imagen.md</code>). No representa un modelo
+          físico exacto de propagación de ondas.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Orden importa: Model y View no dependen de nadie, Controller depende de ambos -->
+<script src="model.js"></script>
+<script src="view.js"></script>
+<script src="controller.js"></script>
+</body>
+</html>
