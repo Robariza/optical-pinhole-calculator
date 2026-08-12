@@ -10,22 +10,25 @@ full-stack con enfoque en producto.
 
 ## Estado del proyecto
 
-En fase de diseño (fase 3). Investigación de usuario y spike técnico completados.
+Diseño de interfaz completado. Próximo paso: construcción técnica (fase 4).
 
 | Fase | Estado |
 |---|---|
 | 1. Fundamentos | ✅ Completada |
 | 2. Investigación de usuario | ✅ Completada — ver [docs/product-brief.md](docs/product-brief.md) |
-| 3. Diseño de interfaz | 🔜 Próxima |
-| 4. Construcción técnica | ⏳ Pendiente |
+| 3. Diseño de interfaz | ✅ Completada — ver [docs/wireframes.md](docs/wireframes.md) y [prototipo](docs/design/prototype.html) |
+| 4. Construcción técnica | 🔜 Próxima |
 | 5. Despliegue y pulido | ⏳ Pendiente |
 | 6. Presentación | ⏳ Pendiente |
 
 ## Documentación
 
 - **[docs/product-brief.md](docs/product-brief.md)** — problema, usuario, historias de usuario, alcance y arquitectura preliminar.
+- **[docs/requirements.md](docs/requirements.md)** — requerimientos funcionales/no funcionales y diccionario de campos.
+- **[docs/wireframes.md](docs/wireframes.md)** — decisiones de UX del prototipo.
 - **[docs/adr/](docs/adr)** — decisiones de arquitectura registradas (Architecture Decision Records).
 - **[docs/spikes/](docs/spikes)** — investigaciones técnicas exploratorias previas a comprometer diseño/arquitectura.
+- **[docs/design/prototype/](docs/design/prototype)** — prototipo navegable, separado en estructura (`index.html`), estilo (`styles.css`) y lógica (`model.js`/`view.js`/`controller.js`) — ver [ADR-0002](docs/adr/0002-separacion-mvc-frontend.md).
 
 ## Stack (preliminar, ver ADR-0001)
 
