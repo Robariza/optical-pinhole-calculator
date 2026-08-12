@@ -28,7 +28,7 @@ Diseño de interfaz completado. Próximo paso: construcción técnica (fase 4).
 - **[docs/wireframes.md](docs/wireframes.md)** — decisiones de UX del prototipo.
 - **[docs/adr/](docs/adr)** — decisiones de arquitectura registradas (Architecture Decision Records).
 - **[docs/spikes/](docs/spikes)** — investigaciones técnicas exploratorias previas a comprometer diseño/arquitectura.
-- **[docs/design/prototype/](docs/design/prototype)** — prototipo navegable, separado en estructura (`index.html`), estilo (`styles.css`) y lógica (`model.js`/`view.js`/`controller.js`) — ver [ADR-0002](docs/adr/0002-separacion-mvc-frontend.md).
+- **[docs/design/prototype/](docs/design/prototype)** — prototipo navegable, separado en estructura (`index.html`), estilo (`styles.css`), contenido por idioma (`i18n.js`) y lógica (`model.js`/`view.js`/`controller.js`) — ver [ADR-0002](docs/adr/0002-separacion-mvc-frontend.md).
 
 ## Stack (preliminar, ver ADR-0001)
 

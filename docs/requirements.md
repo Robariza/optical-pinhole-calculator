@@ -22,7 +22,7 @@ acción o cálculo observable por el usuario.
 | RF-05 | El sistema debe clasificar el resultado como óptimo, subdimensionado o sobredimensionado | HU-1 | ✅ Implementado |
 | RF-06 | El sistema debe mostrar una simulación visual del efecto de desenfoque sobre una imagen de referencia | HU-2 | ✅ Implementado (aproximación vía CSS blur en prototipo; pendiente motor real en fase 4) |
 | RF-07 | El sistema debe declarar visiblemente que la simulación es una aproximación educativa, no un modelo físico exacto | ADR-0001 | ✅ Implementado |
-| RF-08 | El sistema debe permitir alternar el idioma de la interfaz entre español e inglés | HU-4 | ⚠️ UI presente (toggle), sin traducción funcional aún |
+| RF-08 | El sistema debe permitir alternar el idioma de la interfaz entre español e inglés | HU-4 | ✅ Implementado (`i18n.js`, verificado con prueba funcional en jsdom) |
 | RF-09 | El sistema debe permitir comparar dos configuraciones lado a lado | HU-3 | ⏳ Post-MVP, no iniciado |
 | RF-10 | El sistema debe permitir compartir una configuración vía parámetros de URL | Extensión (brief §3) | ⏳ Post-MVP, no iniciado |
 | RF-11 | El sistema debe permitir subir una imagen propia para simular con los parámetros ingresados | Extensión (brief §3) | ⏳ Post-MVP, no iniciado |
@@ -53,7 +53,7 @@ puntuales.
 | `diametroMm` | `float` | milímetros | 0.005 – 0.200 (prototipo; pendiente calibrar con casos reales) | Sí | Slider + iris visual | Ver limitación en wireframes.md: rango ilustrativo, no validado con hardware real |
 | `focalMm` | `float` | milímetros | 20 – 150 | Sí | Slider | Rango típico de cámaras pinhole educativas, sin validar aún con casos reales |
 | `wavelengthNm` | `enum` (`int`) | nanómetros | `{450, 550, 650}` | Sí | Select | 550nm = valor por defecto (luz visible media). Aún no conectado al cálculo (RF-03) |
-| `idioma` | `enum` (`string`) | — | `{"es", "en"}` | Sí | Toggle en header | Por defecto `"es"`. UI presente, traducción pendiente (RF-08) |
+| `idioma` | `enum` (`string`) | — | `{"es", "en"}` | Sí | Toggle en header | Por defecto `"es"`. Implementado vía `i18n.js` (diccionario de textos + `I18N.setLang()`) |
 
 ### 3.2 Campos calculados (salida del sistema, no editables)
 
@@ -93,4 +93,3 @@ Campo/control (diccionario)   Componente del prototipo (model/view/controller.js
   pinhole educativas (actualmente son ilustrativos).
 - Conectar `wavelengthNm` al cálculo real (actualmente el selector no afecta
   el resultado — RF-03 incompleto).
-- Implementar i18n real para RF-08 (actualmente el toggle no traduce nada).

@@ -28,6 +28,18 @@ cada capa del proyecto:
 Regla dura para ambas capas: **la View nunca calcula, el Model nunca toca el
 DOM.** El Controller es el único que conoce a ambos.
 
+### Adenda: un cuarto rol para contenido (i18n)
+
+Al implementar RF-08 (idioma), el diccionario de textos no encajaba
+limpiamente en ninguno de los tres roles: no es lógica de negocio (Model) ni
+manipulación de DOM (View). Se creó `i18n.js` como cuarto archivo,
+responsable únicamente de *contenido por idioma*. La View lo consulta
+(`I18N.t(key)`) pero nunca decide textos por su cuenta; el Controller es
+quien dispara el cambio de idioma y ordena a la View reaplicarlo. Este
+patrón se traslada a fase 4 como una capa de i18n independiente de
+componentes y de lógica de negocio (p. ej. `react-i18next`, ya contemplado
+en `product-brief.md`).
+
 ## Consecuencias
 
 **Positivas**

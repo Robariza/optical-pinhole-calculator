@@ -1,7 +1,8 @@
 /**
  * VIEW
  * Renderizado y manipulación del DOM únicamente.
- * No calcula nada — recibe valores ya calculados por el Model y los pinta.
+ * No calcula nada (Model) y no conoce los textos por idioma (I18N) más allá
+ * de pedírselos — solo los pinta.
  */
 
 const View = (() => {
@@ -11,16 +12,13 @@ const View = (() => {
     diamLabel: document.getElementById("diamLabel"),
     optimoVal: document.getElementById("optimoVal"),
     badge: document.getElementById("badge"),
+    badgeText: document.getElementById("badgeText"),
     canvas: document.getElementById("canvas"),
     iris: document.getElementById("iris"),
+    langEs: document.getElementById("langEs"),
+    langEn: document.getElementById("langEn"),
   };
   const ctx = el.canvas.getContext("2d");
-
-  const BADGE_TEXT = {
-    optimo: "Óptimo",
-    subdimensionado: "Subdimensionado",
-    sobredimensionado: "Sobredimensionado",
-  };
 
   /** Dibuja el patrón de prueba radial (una sola vez, es estático). */
   function dibujarPatron() {
@@ -67,11 +65,29 @@ const View = (() => {
     el.optimoVal.textContent = resultado.dOptimo.toFixed(3) + " mm";
 
     el.badge.className = "badge " + (resultado.clasificacion === "optimo" ? "optimo" : "desvio");
-    el.badge.innerHTML = `<span class="dot"></span>${BADGE_TEXT[resultado.clasificacion]}`;
+    el.badgeText.textContent = I18N.badgeText(resultado.clasificacion);
 
     el.canvas.style.setProperty("--blur", resultado.sigma * 1.6 + "px");
     dibujarIris(rNorm);
   }
 
-  return { dibujarPatron, actualizar };
+  /** Aplica el idioma actual (I18N.getLang()) a todo texto estático marcado con data-i18n. */
+  function aplicarIdioma() {
+    document.documentElement.lang = I18N.getLang();
+
+    document.querySelectorAll("[data-i18n]").forEach((elem) => {
+      elem.textContent = I18N.t(elem.dataset.i18n);
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach((elem) => {
+      elem.innerHTML = I18N.t(elem.dataset.i18nHtml);
+    });
+    document.querySelectorAll("#wavelength option").forEach((opt) => {
+      if (opt.dataset.i18n) opt.textContent = I18N.t(opt.dataset.i18n);
+    });
+
+    el.langEs.classList.toggle("active", I18N.getLang() === "es");
+    el.langEn.classList.toggle("active", I18N.getLang() === "en");
+  }
+
+  return { dibujarPatron, actualizar, aplicarIdioma };
 })();

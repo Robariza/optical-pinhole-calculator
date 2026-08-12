@@ -10,12 +10,12 @@
 
   <header>
     <div>
-      <p class="eyebrow">Fase 3 · Prototipo navegable</p>
-      <h1>Calculadora óptica paramétrica</h1>
+      <p class="eyebrow" data-i18n="eyebrow">Fase 3 · Prototipo navegable</p>
+      <h1 data-i18n="title">Calculadora óptica paramétrica</h1>
     </div>
     <div class="lang-toggle">
-      <button class="active">ES</button>
-      <button>EN</button>
+      <button id="langEs" class="active">ES</button>
+      <button id="langEn">EN</button>
     </div>
   </header>
 
@@ -23,29 +23,29 @@
     <!-- PANEL DE CONTROL -->
     <div>
       <div class="panel">
-        <h2>Parámetros</h2>
+        <h2 data-i18n="panelParametros">Parámetros</h2>
 
         <div class="iris-wrap">
           <svg id="iris" width="140" height="140" viewBox="0 0 140 140"></svg>
-          <div class="iris-caption">Diámetro del orificio<br><b id="diamLabel" style="color:var(--ink); font-family:'JetBrains Mono',monospace;">0.235 mm</b></div>
+          <div class="iris-caption"><span data-i18n="irisCaption">Diámetro del orificio</span><br><b id="diamLabel" style="color:var(--ink); font-family:'JetBrains Mono',monospace;">0.235 mm</b></div>
         </div>
 
         <div class="field">
-          <label>Diámetro del orificio <b id="diamVal">0.235 mm</b></label>
+          <label><span data-i18n="diamLabel">Diámetro del orificio</span> <b id="diamVal">0.235 mm</b></label>
           <input type="range" id="diam" min="5" max="200" value="100">
         </div>
 
         <div class="field">
-          <label>Distancia focal <b id="focalVal">50 mm</b></label>
+          <label><span data-i18n="focalLabel">Distancia focal</span> <b id="focalVal">50 mm</b></label>
           <input type="range" id="focal" min="20" max="150" value="50">
         </div>
 
         <div class="field">
-          <label style="margin-bottom:8px;">Longitud de onda de referencia</label>
-          <select>
-            <option>550 nm (luz visible media)</option>
-            <option>450 nm (azul)</option>
-            <option>650 nm (rojo)</option>
+          <label style="margin-bottom:8px;" data-i18n="wavelengthLabel">Longitud de onda de referencia</label>
+          <select id="wavelength">
+            <option value="0.00055" data-i18n="wavelength550">550 nm (luz visible media)</option>
+            <option value="0.00045" data-i18n="wavelength450">450 nm (azul)</option>
+            <option value="0.00065" data-i18n="wavelength650">650 nm (rojo)</option>
           </select>
         </div>
       </div>
@@ -54,24 +54,24 @@
     <!-- PANEL DE RESULTADO -->
     <div>
       <div class="panel">
-        <h2>Resultado</h2>
+        <h2 data-i18n="panelResultado">Resultado</h2>
         <div class="output-row">
           <div class="stat">
-            <div class="k">Diámetro óptimo (Rayleigh)</div>
+            <div class="k" data-i18n="statOptimo">Diámetro óptimo (Rayleigh)</div>
             <div class="v" id="optimoVal">0.235 mm</div>
           </div>
           <div class="stat">
-            <div class="k">Clasificación</div>
-            <div id="badge" class="badge optimo"><span class="dot"></span>Óptimo</div>
+            <div class="k" data-i18n="statClasificacion">Clasificación</div>
+            <div id="badge" class="badge optimo"><span class="dot"></span><span id="badgeText">Óptimo</span></div>
           </div>
         </div>
 
         <div class="preview">
           <canvas id="canvas" width="400" height="400"></canvas>
-          <div class="preview-note">Simulación visual — aproximación educativa</div>
+          <div class="preview-note" data-i18n="previewNote">Simulación visual — aproximación educativa</div>
         </div>
 
-        <p class="disclaimer">
+        <p class="disclaimer" data-i18n-html="disclaimer">
           Esta vista es una aproximación visual del efecto de difracción/desenfoque, calibrada a partir de un
           spike técnico (ver <code>docs/spikes/001-simulacion-imagen.md</code>). No representa un modelo
           físico exacto de propagación de ondas.
@@ -81,7 +81,8 @@
   </div>
 </div>
 
-<!-- Orden importa: Model y View no dependen de nadie, Controller depende de ambos -->
+<!-- Orden importa: i18n y Model no dependen de nadie, View depende de i18n, Controller depende de todos -->
+<script src="i18n.js"></script>
 <script src="model.js"></script>
 <script src="view.js"></script>
 <script src="controller.js"></script>
