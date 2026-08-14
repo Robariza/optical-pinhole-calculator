@@ -49,7 +49,14 @@ manteniendo detalle reconocible en todos los casos.
 
 *Imagen generada por el spike: subdimensionado (sigma=2.52), óptimo
 (sigma=0.60), sobredimensionado (sigma=4.44). Distancia focal de referencia:
-50mm, diámetro óptimo calculado: 0.235mm.*
+50mm, diámetro óptimo calculado: 0.315mm.*
+
+> **Nota (2026-08-13):** la fórmula de Rayleigh se corrigió posteriormente de
+> `d=√(2·λ·f)` a `d=1.9·√(f·λ)` (constante empírica correcta, ver
+> [product-brief.md, Referencias](../product-brief.md#referencias)). El
+> diámetro óptimo cambió de 0.235mm a 0.315mm, pero como los tres escenarios
+> se definen como proporciones del óptimo (0.4×/1.0×/2.2×), los valores de
+> `sigma` y la conclusión del spike no cambian.
 
 ## Hallazgo principal
 

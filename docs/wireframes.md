@@ -49,6 +49,31 @@ porque el cambio de idioma es una acción frecuente en un aula con
 estudiantes que no dominan el mismo idioma que el docente, no una
 preferencia que se configura una vez.
 
+### 6. Respaldo académico como panel secundario y colapsable
+
+Responde a la historia de usuario 5 (RF-12, RNF-09). Decisiones concretas:
+
+- **Ubicación:** debajo de los paneles de control/resultado, nunca antes ni
+  al lado — el usuario primero interactúa con la herramienta, el respaldo
+  académico es material de consulta, no el punto de entrada.
+- **Estado por defecto: colapsado.** Un docente que ya conoce el criterio
+  de Rayleigh no debería tener que descartar un bloque de texto para llegar
+  a los controles; quien lo necesita, lo expande.
+- **Un recuadro por fórmula**, no un bloque de texto corrido. Cada recuadro
+  contiene: la fórmula, el significado de cada variable, y una
+  interpretación breve (2-3 líneas) de qué explica esa fórmula
+  específicamente — no un ensayo de óptica.
+- **Distinción explícita entre física real y aproximación calibrada.** El
+  recuadro del criterio de Rayleigh se presenta como fórmula física
+  establecida (con cita); el recuadro del mapeo a blur se presenta
+  claramente como aproximación de ingeniería propia, calibrada en el spike
+  001 — no se mezclan en el mismo nivel de autoridad. Esto extiende la
+  misma honestidad que ya exige [ADR-0001](adr/0001-simulacion-visual-vs-modelo-fisico.md)
+  al plano académico, no solo al disclaimer de la simulación visual.
+- **Resuelto antes de construir:** la discrepancia de constante documentada
+  en [requirements.md §3.4](requirements.md#34-discrepancia-de-constante--resuelta-2026-08-13)
+  — se corrigió `diametroOptimo()` a la constante 1.9 citada.
+
 ## Limitaciones conocidas del prototipo
 
 - El blur en este prototipo usa un filtro CSS sobre un patrón dibujado en

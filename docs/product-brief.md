@@ -38,6 +38,10 @@ difracción/resolución óptica más rápido que leyendo la fórmula de forma ai
    mostrar en clase el antes/después de un diseño subóptimo frente a uno óptimo.
 4. Como usuario, quiero cambiar el idioma (ES/EN) para usarlo en distintos
    contextos educativos.
+5. Como docente, quiero ver la fórmula matemática detrás del cálculo con una
+   breve interpretación de cada término, para poder usarla como material de
+   apoyo verificable en clase, sin que reemplace ni complique el uso
+   práctico de la herramienta.
 
 ## 3. Alcance funcional
 
@@ -52,6 +56,11 @@ difracción/resolución óptica más rápido que leyendo la fórmula de forma ai
   interfaz para no ofrecer una precisión que no existe (ver
   [ADR-0001](adr/0001-simulacion-visual-vs-modelo-fisico.md)).
 - Interfaz bilingüe (ES/EN) con selector.
+- Respaldo académico: recuadros individuales con la fórmula usada, sus
+  variables y una interpretación breve, presentados como panel secundario
+  colapsable (no compite con el panel principal). Distingue explícitamente
+  entre fórmula física (Rayleigh) y aproximación de ingeniería calibrada
+  (mapeo a blur), reforzando [ADR-0001](adr/0001-simulacion-visual-vs-modelo-fisico.md).
 
 ### Extensión (post-MVP)
 
@@ -86,3 +95,9 @@ difracción/resolución óptica más rápido que leyendo la fórmula de forma ai
 ---
 *Fórmula de Rayleigh y parámetros base derivados del proyecto previo de cámara
 pinhole para la actividad ecológica en Junín, Cundinamarca.*
+
+## Referencias
+
+Strutt, J. W. (1891). On pin-hole photography. *Philosophical Magazine*, *31*, 87–99.
+
+Young, B. (2024, April 5). *Pinhole design – what Lord Rayleigh really said*. AlternativePhotography.com. https://www.alternativephotography.com/pinhole-design-what-lord-rayleigh-really-said/

@@ -26,6 +26,7 @@ acción o cálculo observable por el usuario.
 | RF-09 | El sistema debe permitir comparar dos configuraciones lado a lado | HU-3 | ⏳ Post-MVP, no iniciado |
 | RF-10 | El sistema debe permitir compartir una configuración vía parámetros de URL | Extensión (brief §3) | ⏳ Post-MVP, no iniciado |
 | RF-11 | El sistema debe permitir subir una imagen propia para simular con los parámetros ingresados | Extensión (brief §3) | ⏳ Post-MVP, no iniciado |
+| RF-12 | El sistema debe mostrar el respaldo académico de las fórmulas usadas (variables, interpretación breve), en recuadros individuales, distinguiendo explícitamente física real de aproximación calibrada | HU-5 | ⏳ Documentado, no implementado |
 
 ## 2. Requerimientos no funcionales (RNF)
 
@@ -43,6 +44,7 @@ puntuales.
 | RNF-06 | El despliegue debe operar dentro de niveles gratuitos de los proveedores elegidos (Netlify/Vercel + Railway/Render) | Restricción de costo | product-brief.md §4 |
 | RNF-07 | Toda decisión de arquitectura no trivial debe registrarse como ADR en `docs/adr/` | Documentación / mantenibilidad | Proceso adoptado para el portafolio (ver README del repo) |
 | RNF-08 | La duplicación de lógica de cálculo entre frontend (preview) y backend (fuente de verdad) debe quedar explícitamente documentada donde ocurra | Transparencia técnica | ADR-0002, riesgo aceptado |
+| RNF-09 | El respaldo académico (RF-12) debe presentarse como panel secundario y colapsable, sin desplazar ni competir visualmente con el panel principal de control/resultado | Usabilidad | Petición explícita: "centralizar la parte técnica brevemente, enfocándose en el apoyo práctico" |
 
 ## 3. Diccionario de campos
 
@@ -72,6 +74,18 @@ puntuales.
 | `SIGMA_MAX` | `8.0` | `model.js` | Límite superior para que el efecto degrade sin destruir la imagen |
 | `UMBRAL_OPTIMO` | `0.15` (15%) | `model.js` | Desviación relativa máxima para clasificar como "óptimo"; sin validar aún con usuarios reales — candidato a ajuste en fase de pruebas de usuario |
 
+### 3.4 Discrepancia de constante — resuelta (2026-08-13)
+
+`diametroOptimo()` implementaba originalmente `d = √(2·λ·f)` (constante
+≈ 1.414). La literatura académica (Young, 2024, sobre el trabajo original
+de Strutt, 1891 — ver [product-brief.md, Referencias](product-brief.md#referencias))
+usa la constante **1.9**, determinada experimentalmente por Lord Rayleigh:
+`d = 1.9·√(f·λ)`. Se corrigió la implementación a `1.9` para que coincida
+con la fuente citada en el respaldo académico (RF-12). El diámetro óptimo
+de referencia (focal=50mm) pasó de 0.235mm a 0.315mm; la calibración de
+`sigma` (spike 001) no requirió ajuste porque está definida en proporciones
+relativas al óptimo, no en valores absolutos.
+
 ## 4. Trazabilidad rápida
 
 ```
@@ -93,3 +107,6 @@ Campo/control (diccionario)   Componente del prototipo (model/view/controller.js
   pinhole educativas (actualmente son ilustrativos).
 - Conectar `wavelengthNm` al cálculo real (actualmente el selector no afecta
   el resultado — RF-03 incompleto).
+- Discrepancia de la constante de Rayleigh: resuelta (§3.4).
+- Diseñar e implementar el panel de respaldo académico (RF-12, RNF-09) —
+  ver decisión de UX en [wireframes.md](wireframes.md).

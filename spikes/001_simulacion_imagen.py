@@ -34,9 +34,12 @@ def generar_imagen_prueba(size=300):
 
 # --- 2. Fórmula de Rayleigh para diámetro óptimo de pinhole ---
 def diametro_optimo(focal_mm, wavelength_nm=550):
-    """Aproximación estándar: d = sqrt(2 * lambda * f) (unidades consistentes en mm)."""
+    """d = 1.9 * sqrt(f * lambda) -- constante empírica de Lord Rayleigh
+    (Strutt, 1891; ver Young, 2024, para la constante 1.9 confirmada
+    experimentalmente). Unidades consistentes en mm."""
+    RAYLEIGH_CONST = 1.9
     wavelength_mm = wavelength_nm * 1e-6
-    return math.sqrt(2 * wavelength_mm * focal_mm)
+    return RAYLEIGH_CONST * math.sqrt(focal_mm * wavelength_mm)
 
 # --- 3. Mapear el desvío del diámetro óptimo a un sigma de blur ---
 def sigma_desde_diametro(d_mm, d_optimo_mm, k=3.2, sigma_base=0.6, sigma_max=8.0):

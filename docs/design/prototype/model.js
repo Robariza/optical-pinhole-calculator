@@ -13,9 +13,10 @@ const Model = (() => {
   const SIGMA_MAX = 8.0;
   const UMBRAL_OPTIMO = 0.15; // desviación relativa máxima para considerarse "óptimo"
 
-  /** Diámetro óptimo de pinhole según el criterio de Rayleigh. */
+  /** Diámetro óptimo de pinhole según el criterio de Rayleigh (Strutt, 1891). */
   function diametroOptimo(focalMm, lambdaMm = 550e-6) {
-    return Math.sqrt(2 * lambdaMm * focalMm);
+    const RAYLEIGH_CONST = 1.9; // constante empírica de Lord Rayleigh (Young, 2024)
+    return RAYLEIGH_CONST * Math.sqrt(focalMm * lambdaMm);
   }
 
   /** Sigma de blur a partir de la desviación relativa respecto al óptimo. */
