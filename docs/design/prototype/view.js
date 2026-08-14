@@ -22,9 +22,14 @@ const View = (() => {
 
   /** Dibuja el patrón de prueba radial (una sola vez, es estático). */
   function dibujarPatron() {
-    const w = el.canvas.width, h = el.canvas.height, cx = w / 2, cy = h / 2;
-    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, w, h);
-    ctx.strokeStyle = "#111"; ctx.lineWidth = 2;
+    const w = el.canvas.width,
+      h = el.canvas.height,
+      cx = w / 2,
+      cy = h / 2;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = "#111";
+    ctx.lineWidth = 2;
     for (let a = 0; a < 360; a += 6) {
       const rad = (a * Math.PI) / 180;
       ctx.beginPath();
@@ -34,13 +39,18 @@ const View = (() => {
     }
     ctx.lineWidth = 1;
     for (let r = 30; r < cx; r += 30) {
-      ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
     }
   }
 
   /** Dibuja el iris (elemento firma) según la apertura normalizada 0..1. */
   function dibujarIris(rNorm) {
-    const n = 8, R = 62, cx = 70, cy = 70;
+    const n = 8,
+      R = 62,
+      cx = 70,
+      cy = 70;
     const rOpen = 8 + rNorm * 46;
     const twist = (1 - rNorm) * 22;
     const inner = [];

@@ -12,14 +12,14 @@ full-stack con enfoque en producto.
 
 Diseño de interfaz completado. Próximo paso: construcción técnica (fase 4).
 
-| Fase | Estado |
-|---|---|
-| 1. Fundamentos | ✅ Completada |
-| 2. Investigación de usuario | ✅ Completada — ver [docs/product-brief.md](docs/product-brief.md) |
-| 3. Diseño de interfaz | ✅ Completada — ver [docs/wireframes.md](docs/wireframes.md) y [prototipo](docs/design/prototype.html) |
-| 4. Construcción técnica | 🔜 Próxima |
-| 5. Despliegue y pulido | ⏳ Pendiente |
-| 6. Presentación | ⏳ Pendiente |
+| Fase                        | Estado                                                                                                 |
+| --------------------------- | ------------------------------------------------------------------------------------------------------ |
+| 1. Fundamentos              | ✅ Completada                                                                                          |
+| 2. Investigación de usuario | ✅ Completada — ver [docs/product-brief.md](docs/product-brief.md)                                     |
+| 3. Diseño de interfaz       | ✅ Completada — ver [docs/wireframes.md](docs/wireframes.md) y [prototipo](docs/design/prototype.html) |
+| 4. Construcción técnica     | 🔜 Próxima                                                                                             |
+| 5. Despliegue y pulido      | ⏳ Pendiente                                                                                           |
+| 6. Presentación             | ⏳ Pendiente                                                                                           |
 
 ## Documentación
 

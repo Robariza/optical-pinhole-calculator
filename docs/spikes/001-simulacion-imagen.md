@@ -13,7 +13,7 @@ definitiva, validar si un blur gaussiano ponderado por el criterio de
 Rayleigh produce un resultado **visualmente creíble** para tres escenarios:
 orificio subdimensionado, óptimo y sobredimensionado.
 
-Este spike actúa como *gate de decisión*: si el enfoque no fuera creíble, el
+Este spike actúa como _gate de decisión_: si el enfoque no fuera creíble, el
 alcance del MVP se reduciría a validación numérica sin simulación visual
 (ver [product-brief.md, sección 3](../product-brief.md#3-alcance-funcional)).
 
@@ -34,7 +34,7 @@ alcance del MVP se reduciría a validación numérica sin simulación visual
 **Resultado:** los escenarios subdimensionado y sobredimensionado produjeron
 `sigma` de 11.4 y 22.2 respectivamente — la imagen quedaba completamente
 ilegible, sin ningún detalle reconocible. El efecto dejaba de ser educativo:
-un docente no podría usarlo para mostrar *por qué* un diseño es subóptimo,
+un docente no podría usarlo para mostrar _por qué_ un diseño es subóptimo,
 solo vería una mancha uniforme.
 
 ## Iteración 2 — ajuste
@@ -47,9 +47,9 @@ manteniendo detalle reconocible en todos los casos.
 
 ![Comparación de los tres escenarios](../../spikes/output/comparacion_escenarios.png)
 
-*Imagen generada por el spike: subdimensionado (sigma=2.52), óptimo
+_Imagen generada por el spike: subdimensionado (sigma=2.52), óptimo
 (sigma=0.60), sobredimensionado (sigma=4.44). Distancia focal de referencia:
-50mm, diámetro óptimo calculado: 0.315mm.*
+50mm, diámetro óptimo calculado: 0.315mm._
 
 > **Nota (2026-08-13):** la fórmula de Rayleigh se corrigió posteriormente de
 > `d=√(2·λ·f)` a `d=1.9·√(f·λ)` (constante empírica correcta, ver

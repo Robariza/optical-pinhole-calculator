@@ -1,0 +1,5 @@
+node_modules/
+spikes/output/
+*.png
+*.jpg
+*.zip

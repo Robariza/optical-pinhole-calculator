@@ -32,14 +32,17 @@ educativo.
 ## Consecuencias
 
 **Positivas**
+
 - Implementación simple (scipy/PIL en backend, o equivalente en frontend con Canvas).
 - Rápido de calcular en tiempo real para una interfaz interactiva.
 - Suficiente para el objetivo pedagógico: mostrar la tendencia, no medir con precisión física.
 
 **Negativas / limitaciones aceptadas**
+
 - No es científicamente preciso; no debe usarse para diseño real de instrumentos ópticos.
 - Requiere comunicación clara en la UI para evitar que se interprete como simulación física exacta.
 
 **Seguimiento**
+
 - Los valores de calibración (`k`, `sigma_base`, `sigma_max`) deben quedar
   como constantes documentadas en el código backend, no como "números mágicos".

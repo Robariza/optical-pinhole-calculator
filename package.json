@@ -1,0 +1,12 @@
+{
+  "name": "optical-pinhole-calculator",
+  "private": true,
+  "description": "Calculadora óptica paramétrica con simulación de imagen — proyecto insignia 1/3 del portafolio de Robinson Ariza.",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

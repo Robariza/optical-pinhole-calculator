@@ -70,18 +70,18 @@ difracción/resolución óptica más rápido que leyendo la fórmula de forma ai
 
 ## 4. Arquitectura técnica preliminar
 
-| Capa | Decisión | Justificación |
-|---|---|---|
-| Frontend | React + Vite, Tailwind, Canvas API | Interactividad en tiempo real, ecosistema conocido |
-| Backend | FastAPI (Python) | Separa cálculo científico del frontend; más testeable |
-| Tests | pytest sobre lógica de fórmulas | Casos límite: orificio = 0, focal negativa, etc. |
-| Deploy | Netlify/Vercel (frontend) + Railway/Render (backend) | Free tier suficiente para demo |
-| i18n | react-i18next | Soporta el requisito bilingüe |
+| Capa     | Decisión                                             | Justificación                                         |
+| -------- | ---------------------------------------------------- | ----------------------------------------------------- |
+| Frontend | React + Vite, Tailwind, Canvas API                   | Interactividad en tiempo real, ecosistema conocido    |
+| Backend  | FastAPI (Python)                                     | Separa cálculo científico del frontend; más testeable |
+| Tests    | pytest sobre lógica de fórmulas                      | Casos límite: orificio = 0, focal negativa, etc.      |
+| Deploy   | Netlify/Vercel (frontend) + Railway/Render (backend) | Free tier suficiente para demo                        |
+| i18n     | react-i18next                                        | Soporta el requisito bilingüe                         |
 
 ## 5. Riesgos técnicos identificados
 
-| Riesgo | Estado | Referencia |
-|---|---|---|
+| Riesgo                                            | Estado              | Referencia                                                              |
+| ------------------------------------------------- | ------------------- | ----------------------------------------------------------------------- |
 | Viabilidad visual del blur ponderado por Rayleigh | ✅ Resuelto (spike) | [docs/spikes/001-simulacion-imagen.md](spikes/001-simulacion-imagen.md) |
 
 ## 6. Criterio de éxito del proyecto (para el portafolio)
@@ -93,11 +93,12 @@ difracción/resolución óptica más rápido que leyendo la fórmula de forma ai
   arquitectura y resultado — construido a partir de estos mismos documentos.
 
 ---
-*Fórmula de Rayleigh y parámetros base derivados del proyecto previo de cámara
-pinhole para la actividad ecológica en Junín, Cundinamarca.*
+
+_Fórmula de Rayleigh y parámetros base derivados del proyecto previo de cámara
+pinhole para la actividad ecológica en Junín, Cundinamarca._
 
 ## Referencias
 
-Strutt, J. W. (1891). On pin-hole photography. *Philosophical Magazine*, *31*, 87–99.
+Strutt, J. W. (1891). On pin-hole photography. _Philosophical Magazine_, _31_, 87–99.
 
-Young, B. (2024, April 5). *Pinhole design – what Lord Rayleigh really said*. AlternativePhotography.com. https://www.alternativephotography.com/pinhole-design-what-lord-rayleigh-really-said/
+Young, B. (2024, April 5). _Pinhole design – what Lord Rayleigh really said_. AlternativePhotography.com. https://www.alternativephotography.com/pinhole-design-what-lord-rayleigh-really-said/
