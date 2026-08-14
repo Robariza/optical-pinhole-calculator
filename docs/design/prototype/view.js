@@ -99,5 +99,15 @@ const View = (() => {
     el.langEn.classList.toggle("active", I18N.getLang() === "en");
   }
 
-  return { dibujarPatron, actualizar, aplicarIdioma };
+  /** Muestra la pestaña indicada del panel académico y oculta las demás. */
+  function mostrarTab(nombreTab) {
+    document.querySelectorAll(".tab").forEach((tab) => {
+      tab.classList.toggle("active", tab.dataset.tab === nombreTab);
+    });
+    document.querySelectorAll(".tab-panel").forEach((panel) => {
+      panel.classList.toggle("active", panel.dataset.panel === nombreTab);
+    });
+  }
+
+  return { dibujarPatron, actualizar, aplicarIdioma, mostrarTab };
 })();

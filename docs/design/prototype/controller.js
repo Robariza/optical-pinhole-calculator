@@ -39,6 +39,11 @@ const Controller = (() => {
     langEs.addEventListener("click", () => cambiarIdioma("es"));
     langEn.addEventListener("click", () => cambiarIdioma("en"));
 
+    // Pestañas del panel de respaldo académico (RF-12)
+    document.querySelectorAll(".tab").forEach((tab) => {
+      tab.addEventListener("click", () => View.mostrarTab(tab.dataset.tab));
+    });
+
     manejarCambio(); // estado inicial
   }
 

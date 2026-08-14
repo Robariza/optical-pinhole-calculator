@@ -98,6 +98,61 @@
           </div>
         </div>
       </div>
+
+      <!-- PANEL DE RESPALDO ACADÉMICO (RF-12) — colapsable, secundario por diseño -->
+      <details class="about">
+        <summary data-i18n="aboutSummary">Fundamento académico</summary>
+
+        <div class="about-body">
+          <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="concepto" role="tab" data-i18n="tabConcepto">
+              Concepto
+            </button>
+            <button class="tab" data-tab="formulas" role="tab" data-i18n="tabFormulas">
+              Fórmulas
+            </button>
+            <button class="tab" data-tab="aplicaciones" role="tab" data-i18n="tabAplicaciones">
+              Aplicaciones
+            </button>
+          </div>
+
+          <section class="tab-panel active" data-panel="concepto" role="tabpanel">
+            <h3 data-i18n="conceptoTitulo">¿Qué representa esta calculadora?</h3>
+            <div class="prose" data-i18n-html="conceptoTexto"></div>
+          </section>
+
+          <section class="tab-panel" data-panel="formulas" role="tabpanel">
+            <h3 data-i18n="formulasTitulo">Fórmulas empleadas</h3>
+
+            <article class="formula-card physics">
+              <h4 data-i18n="formulaRayleighNombre">1. Diámetro óptimo — criterio de Rayleigh</h4>
+              <p class="equation" data-i18n="formulaRayleighEcuacion">d = 1,9 · √(f · λ)</p>
+              <ul class="vars" data-i18n-html="formulaRayleighVars"></ul>
+              <p class="interp" data-i18n="formulaRayleighInterpretacion"></p>
+              <p class="source" data-i18n="formulaRayleighFuente"></p>
+            </article>
+
+            <article class="formula-card physics">
+              <h4 data-i18n="formulaFNumberNombre">2. Número f — relación de apertura</h4>
+              <p class="equation" data-i18n="formulaFNumberEcuacion">N = f / d</p>
+              <ul class="vars" data-i18n-html="formulaFNumberVars"></ul>
+              <p class="interp" data-i18n="formulaFNumberInterpretacion"></p>
+            </article>
+
+            <article class="formula-card approximation">
+              <h4 data-i18n="formulaBlurNombre">3. Mapeo a desenfoque — aproximación propia</h4>
+              <p class="equation" data-i18n="formulaBlurEcuacion"></p>
+              <ul class="vars" data-i18n-html="formulaBlurVars"></ul>
+              <p class="interp" data-i18n-html="formulaBlurInterpretacion"></p>
+            </article>
+          </section>
+
+          <section class="tab-panel" data-panel="aplicaciones" role="tabpanel">
+            <h3 data-i18n="aplicacionesTitulo">Aplicaciones e importancia</h3>
+            <div class="prose" data-i18n-html="aplicacionesTexto"></div>
+          </section>
+        </div>
+      </details>
     </div>
 
     <!-- Orden importa: i18n y Model no dependen de nadie, View depende de i18n, Controller depende de todos -->

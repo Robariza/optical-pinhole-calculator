@@ -26,7 +26,7 @@ acción o cálculo observable por el usuario.
 | RF-09 | El sistema debe permitir comparar dos configuraciones lado a lado                                                                                                                                     | HU-3                            | ⏳ Post-MVP, no iniciado                                                                 |
 | RF-10 | El sistema debe permitir compartir una configuración vía parámetros de URL                                                                                                                            | Extensión (brief §3)            | ⏳ Post-MVP, no iniciado                                                                 |
 | RF-11 | El sistema debe permitir subir una imagen propia para simular con los parámetros ingresados                                                                                                           | Extensión (brief §3)            | ⏳ Post-MVP, no iniciado                                                                 |
-| RF-12 | El sistema debe mostrar el respaldo académico de las fórmulas usadas (variables, interpretación breve), en recuadros individuales, distinguiendo explícitamente física real de aproximación calibrada | HU-5                            | ⏳ Documentado, no implementado                                                          |
+| RF-12 | El sistema debe mostrar el respaldo académico de las fórmulas usadas (variables, interpretación breve), en recuadros individuales, distinguiendo explícitamente física real de aproximación calibrada | HU-5                            | ✅ Implementado (panel colapsable con 3 pestañas; verificado bilingüe)                   |
 
 ## 2. Requerimientos no funcionales (RNF)
 
@@ -106,5 +106,3 @@ Campo/control (diccionario)   Componente del prototipo (model/view/controller.js
 - Calibrar los rangos de `diametroMm` y `focalMm` con casos reales de cámaras
   pinhole educativas (actualmente son ilustrativos).
 - Discrepancia de la constante de Rayleigh: resuelta (§3.4).
-- Diseñar e implementar el panel de respaldo académico (RF-12, RNF-09) —
-  ver decisión de UX en [wireframes.md](wireframes.md).

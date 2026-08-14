@@ -74,6 +74,36 @@ Responde a la historia de usuario 5 (RF-12, RNF-09). Decisiones concretas:
   en [requirements.md §3.4](requirements.md#34-discrepancia-de-constante--resuelta-2026-08-13)
   — se corrigió `diametroOptimo()` a la constante 1.9 citada.
 
+### 7. Sub-pestañas dentro del panel, no una pestaña de nivel superior
+
+Al implementar RF-12 se evaluó si el contenido académico debía vivir en una
+pestaña de navegación separada del resto de la aplicación. Se descartó: una
+pestaña de nivel superior fragmenta la experiencia y obliga a abandonar la
+herramienta para consultar el fundamento. En su lugar, un único panel
+colapsable contiene tres sub-pestañas, que van de lo general a lo específico:
+
+| Pestaña          | Contenido                                                                                                         | Para quién                                           |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| **Concepto**     | Qué es una cámara estenopeica, los dos efectos que compiten (geometría vs. difracción) y por qué existe un óptimo | Visitante sin contexto previo                        |
+| **Fórmulas**     | Un recuadro por fórmula: ecuación, variables, interpretación                                                      | Docente o estudiante que necesita el detalle técnico |
+| **Aplicaciones** | Usos reales, importancia académica del límite de difracción, uso en el aula                                       | Docente evaluando si sirve para su clase             |
+
+Decisiones asociadas:
+
+- **Codificación visual de la autoridad de cada fórmula.** Los recuadros de
+  fórmulas físicas usan el azul de acento y llevan cita; el recuadro del
+  mapeo a desenfoque usa el ámbar de advertencia y declara explícitamente
+  que no es una ley física. La distinción exigida por
+  [ADR-0001](adr/0001-simulacion-visual-vs-modelo-fisico.md) se vuelve así
+  visible de un vistazo, no solo textual.
+- **`<details>/<summary>` nativo** en vez de un colapsable propio con JS:
+  accesible por teclado sin trabajo adicional (RNF-04).
+- **El cambio de idioma no reinicia la pestaña activa** — verificado; el
+  usuario no pierde su lugar al traducir.
+- **Convención decimal por idioma:** la ecuación se muestra con coma decimal
+  en español y punto en inglés, ya que forma parte del contenido traducible,
+  no del código.
+
 ## Limitaciones conocidas del prototipo
 
 - El blur en este prototipo usa un filtro CSS sobre un patrón dibujado en
