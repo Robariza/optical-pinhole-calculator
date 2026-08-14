@@ -17,7 +17,7 @@ acción o cálculo observable por el usuario.
 | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------- |
 | RF-01 | El sistema debe permitir ingresar el diámetro del orificio mediante un control interactivo (iris)                                                                                                     | HU-1                            | ✅ Implementado (prototipo)                                                              |
 | RF-02 | El sistema debe permitir ingresar la distancia focal                                                                                                                                                  | HU-1                            | ✅ Implementado (prototipo)                                                              |
-| RF-03 | El sistema debe permitir seleccionar la longitud de onda de referencia                                                                                                                                | HU-1                            | ⚠️ UI presente, sin efecto en el cálculo aún                                             |
+| RF-03 | El sistema debe permitir seleccionar la longitud de onda de referencia                                                                                                                                | HU-1                            | ✅ Implementado (verificado: `d_optimo` varía correctamente con 450/550/650nm)           |
 | RF-04 | El sistema debe calcular el diámetro óptimo mediante el criterio de Rayleigh                                                                                                                          | HU-1                            | ✅ Implementado (`model.js`)                                                             |
 | RF-05 | El sistema debe clasificar el resultado como óptimo, subdimensionado o sobredimensionado                                                                                                              | HU-1                            | ✅ Implementado                                                                          |
 | RF-06 | El sistema debe mostrar una simulación visual del efecto de desenfoque sobre una imagen de referencia                                                                                                 | HU-2                            | ✅ Implementado (aproximación vía CSS blur en prototipo; pendiente motor real en fase 4) |
@@ -54,7 +54,7 @@ puntuales.
 | -------------- | ----------------- | ---------- | -------------------------------------------------------------- | --------- | -------------------- | ----------------------------------------------------------------------------------------- |
 | `diametroMm`   | `float`           | milímetros | 0.005 – 0.200 (prototipo; pendiente calibrar con casos reales) | Sí        | Slider + iris visual | Ver limitación en wireframes.md: rango ilustrativo, no validado con hardware real         |
 | `focalMm`      | `float`           | milímetros | 20 – 150                                                       | Sí        | Slider               | Rango típico de cámaras pinhole educativas, sin validar aún con casos reales              |
-| `wavelengthNm` | `enum` (`int`)    | nanómetros | `{450, 550, 650}`                                              | Sí        | Select               | 550nm = valor por defecto (luz visible media). Aún no conectado al cálculo (RF-03)        |
+| `wavelengthNm` | `enum` (`int`)    | nanómetros | `{450, 550, 650}`                                              | Sí        | Select               | 550nm = valor por defecto (luz visible media). Conectado a `Model.calcular()` (RF-03)     |
 | `idioma`       | `enum` (`string`) | —          | `{"es", "en"}`                                                 | Sí        | Toggle en header     | Por defecto `"es"`. Implementado vía `i18n.js` (diccionario de textos + `I18N.setLang()`) |
 
 ### 3.2 Campos calculados (salida del sistema, no editables)
@@ -105,8 +105,6 @@ Campo/control (diccionario)   Componente del prototipo (model/view/controller.js
 
 - Calibrar los rangos de `diametroMm` y `focalMm` con casos reales de cámaras
   pinhole educativas (actualmente son ilustrativos).
-- Conectar `wavelengthNm` al cálculo real (actualmente el selector no afecta
-  el resultado — RF-03 incompleto).
 - Discrepancia de la constante de Rayleigh: resuelta (§3.4).
 - Diseñar e implementar el panel de respaldo académico (RF-12, RNF-09) —
   ver decisión de UX en [wireframes.md](wireframes.md).

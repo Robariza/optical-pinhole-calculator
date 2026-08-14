@@ -8,17 +8,17 @@
 const Controller = (() => {
   const diamSlider = document.getElementById("diam");
   const focalSlider = document.getElementById("focal");
+  const wavelengthSelect = document.getElementById("wavelength");
   const langEs = document.getElementById("langEs");
   const langEn = document.getElementById("langEn");
 
   function manejarCambio() {
     const focalMm = parseFloat(focalSlider.value);
     const diametroMm = parseFloat(diamSlider.value) / 1000;
+    const wavelengthMm = parseFloat(wavelengthSelect.value);
     const rNorm = Math.min(diamSlider.value / diamSlider.max, 1);
 
-    // RF-03 (longitud de onda) queda pendiente: el select aún no se lee ni
-    // se pasa a Model.calcular(). Ver docs/requirements.md.
-    const resultado = Model.calcular({ focalMm, diametroMm });
+    const resultado = Model.calcular({ focalMm, diametroMm, wavelengthMm });
 
     View.actualizar({ focalMm, diametroMm, rNorm, resultado });
   }
@@ -35,6 +35,7 @@ const Controller = (() => {
 
     diamSlider.addEventListener("input", manejarCambio);
     focalSlider.addEventListener("input", manejarCambio);
+    wavelengthSelect.addEventListener("change", manejarCambio);
     langEs.addEventListener("click", () => cambiarIdioma("es"));
     langEn.addEventListener("click", () => cambiarIdioma("en"));
 

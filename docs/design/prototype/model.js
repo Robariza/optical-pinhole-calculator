@@ -33,8 +33,8 @@ const Model = (() => {
   }
 
   /** Punto de entrada único: recalcula todo a partir de los inputs. */
-  function calcular({ focalMm, diametroMm }) {
-    const dOptimo = diametroOptimo(focalMm);
+  function calcular({ focalMm, diametroMm, wavelengthMm = 550e-6 }) {
+    const dOptimo = diametroOptimo(focalMm, wavelengthMm);
     return {
       dOptimo,
       sigma: sigmaDesdeDiametro(diametroMm, dOptimo),
