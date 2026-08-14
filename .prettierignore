@@ -1,5 +1,8 @@
+*.egg-info/
+*.jpg
+*.png
+*.zip
+.pytest_cache/
+.venv/
 node_modules/
 spikes/output/
-*.png
-*.jpg
-*.zip

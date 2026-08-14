@@ -41,7 +41,25 @@ Fase 4 en curso — ver [docs/phase4-plan.md](docs/phase4-plan.md).
 
 ## Cómo correr el proyecto
 
-_Pendiente — se documentará al iniciar la fase 4 (construcción técnica)._
+### Backend (fase 4A, en curso)
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -e ".[dev]"
+```
+
+Pruebas y formato:
+
+```bash
+pytest                 # ejecuta la suite completa
+black app tests        # formatea (config en pyproject.toml)
+```
+
+### Frontend (fase 4B)
+
+_Pendiente — se documentará al iniciar el paso 4B.1._
 
 ## Licencia
 
