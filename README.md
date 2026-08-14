@@ -10,16 +10,17 @@ full-stack con enfoque en producto.
 
 ## Estado del proyecto
 
-Diseño de interfaz completado. Próximo paso: construcción técnica (fase 4).
+Fase 3 completada (prototipo con MVP funcional: RF-01 a RF-08 y RF-12).
+Fase 4 en curso — ver [docs/phase4-plan.md](docs/phase4-plan.md).
 
-| Fase                        | Estado                                                                                                 |
-| --------------------------- | ------------------------------------------------------------------------------------------------------ |
-| 1. Fundamentos              | ✅ Completada                                                                                          |
-| 2. Investigación de usuario | ✅ Completada — ver [docs/product-brief.md](docs/product-brief.md)                                     |
-| 3. Diseño de interfaz       | ✅ Completada — ver [docs/wireframes.md](docs/wireframes.md) y [prototipo](docs/design/prototype.html) |
-| 4. Construcción técnica     | 🔜 Próxima                                                                                             |
-| 5. Despliegue y pulido      | ⏳ Pendiente                                                                                           |
-| 6. Presentación             | ⏳ Pendiente                                                                                           |
+| Fase                        | Estado                                                                                            |
+| --------------------------- | ------------------------------------------------------------------------------------------------- |
+| 1. Fundamentos              | ✅ Completada                                                                                     |
+| 2. Investigación de usuario | ✅ Completada — ver [docs/product-brief.md](docs/product-brief.md)                                |
+| 3. Diseño de interfaz       | ✅ Completada — ver [docs/wireframes.md](docs/wireframes.md) y [prototipo](docs/design/prototype) |
+| 4. Construcción técnica     | 🔜 En curso — ver [docs/phase4-plan.md](docs/phase4-plan.md)                                      |
+| 5. Despliegue y pulido      | ⏳ Pendiente                                                                                      |
+| 6. Presentación             | ⏳ Pendiente                                                                                      |
 
 ## Documentación
 
