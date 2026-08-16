@@ -71,7 +71,7 @@ Responde a la historia de usuario 5 (RF-12, RNF-09). Decisiones concretas:
   misma honestidad que ya exige [ADR-0001](adr/0001-simulacion-visual-vs-modelo-fisico.md)
   al plano académico, no solo al disclaimer de la simulación visual.
 - **Resuelto antes de construir:** la discrepancia de constante documentada
-  en [requirements.md §3.4](requirements.md#34-discrepancia-de-constante--resuelta-2026-08-13)
+  en [requirements.md §3.5](requirements.md#35-discrepancia-de-constante--resuelta-2026-08-13)
   — se corrigió `diametroOptimo()` a la constante 1.9 citada.
 
 ### 7. Sub-pestañas dentro del panel, no una pestaña de nivel superior

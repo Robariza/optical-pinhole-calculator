@@ -74,7 +74,19 @@ puntuales.
 | `SIGMA_MAX`     | `8.0`        | `model.js`  | Límite superior para que el efecto degrade sin destruir la imagen                                                                                |
 | `UMBRAL_OPTIMO` | `0.15` (15%) | `model.js`  | Desviación relativa máxima para clasificar como "óptimo"; sin validar aún con usuarios reales — candidato a ajuste en fase de pruebas de usuario |
 
-### 3.4 Discrepancia de constante — resuelta (2026-08-13)
+### 3.4 Unidades en el contrato de la API (fase 4A)
+
+El modelo (`backend/app/model.py`) calcula internamente en **milímetros**,
+pero la API expuesta acepta la longitud de onda en **nanómetros**, siguiendo
+el diccionario de campos de §3.1. La conversión ocurre en
+`backend/app/schemas.py` (`CalculoRequest.wavelength_mm`), en el borde del
+sistema: un cliente HTTP nunca debe tener que enviar `0.00055`.
+
+Además, la API acepta cualquier valor del espectro visible (380–750 nm),
+no solo los tres valores del selector de la interfaz: esa restricción es
+una decisión de UI, no una limitación física.
+
+### 3.5 Discrepancia de constante — resuelta (2026-08-13)
 
 `diametroOptimo()` implementaba originalmente `d = √(2·λ·f)` (constante
 ≈ 1.414). La literatura académica (Young, 2024, sobre el trabajo original
@@ -105,4 +117,4 @@ Campo/control (diccionario)   Componente del prototipo (model/view/controller.js
 
 - Calibrar los rangos de `diametroMm` y `focalMm` con casos reales de cámaras
   pinhole educativas (actualmente son ilustrativos).
-- Discrepancia de la constante de Rayleigh: resuelta (§3.4).
+- Discrepancia de la constante de Rayleigh: resuelta (§3.5).
